@@ -95,6 +95,15 @@ static Key keys[] = {
 	/* Launchers */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	/* Media Keys */
+	{ 0,         XF86XK_AudioRaiseVolume,  	spawn,     SHCMD("chVol +5%") },
+	{ 0,         XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -5%") },
+	{ ShiftMask, XF86XK_AudioRaiseVolume,  	spawn,     SHCMD("chVol +2%") },
+	{ ShiftMask, XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -2%") },
+	{ 0,         XF86XK_MonBrightnessUp,    spawn,     SHCMD("chBl +10") },
+	{ 0,         XF86XK_MonBrightnessDown,  spawn,     SHCMD("chBl -10") },
+	{ ShiftMask, XF86XK_MonBrightnessUp,    spawn,     SHCMD("chBl +5") },
+	{ ShiftMask, XF86XK_MonBrightnessDown,  spawn,     SHCMD("chBl -5") },
 };
 
 /* button definitions */
