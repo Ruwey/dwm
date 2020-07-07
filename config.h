@@ -72,6 +72,8 @@ static const char *termcmd[]  = { "termite", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_e,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          SHCMD("pkill -x dwm") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -102,7 +104,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
 	/*  Gaps */
 	{ MODKEY,                       XK_equal,  incrgaps,       {.i = +3 } },
 	{ MODKEY,                       XK_minus,  incrgaps,       {.i = -3 } },
@@ -116,7 +117,7 @@ static Key keys[] = {
 	{ 0,         XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -5%") },
 	{ ShiftMask, XF86XK_AudioRaiseVolume,  	spawn,     SHCMD("chVol +2%") },
 	{ ShiftMask, XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -2%") },
-	{ ShiftMask, XF86XK_AudioMute,          spawn,     SHCMD("chVol mute") },
+	{ 0,         XF86XK_AudioMute,          spawn,     SHCMD("chVol mute") },
 	{ 0,         XF86XK_AudioPrev,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) previous") },
 	{ 0,         XF86XK_AudioPlay,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) play-pause") },
 	{ 0,         XF86XK_AudioNext,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) next") },
