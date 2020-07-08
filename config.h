@@ -26,6 +26,7 @@ static const char *colors[][3]      = {
 /*  Autostart */
 static const char *const autostart[] = {
 	"sh", "-c", "$HOME/.config/autostart.sh", NULL, /* Universal Stuff */
+	"slstatus", NULL, /* Statusbar */
 	NULL /* terminate */
 };
 
