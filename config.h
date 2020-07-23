@@ -117,8 +117,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} }, */
 	{ MODKEY|ShiftMask,             XK_f,      fullscreen,      {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
-	{ MODKEY,                       XK_backslash, view,        {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_backslash, tag,         {.ui = ~0 } },
+	{ MODKEY,                    XK_backslash, view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,          XK_backslash, tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
@@ -144,6 +144,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          SHCMD("winFlash") },
+	{ MODKEY,                    XK_BackSpace, spawn,          SHCMD("blurlock") },
+	{ MODKEY|ShiftMask,          XK_BackSpace, spawn,          SHCMD("blurlock -s") },
 	/* Media Keys */
 	{ 0,         XF86XK_AudioRaiseVolume,  	spawn,     SHCMD("chVol +5%") },
 	{ 0,         XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -5%") },
