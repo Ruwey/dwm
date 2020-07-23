@@ -83,8 +83,8 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
 	{ MOD, XK_j,     ACTION##stack, {.i = INC(+1) } }, \
 	{ MOD, XK_k,     ACTION##stack, {.i = INC(-1) } }, \
-	{ MOD, XK_Tab,   ACTION##stack, {.i = PREVSEL } }, 
-	/* { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
+	/* { MOD, XK_Tab,   ACTION##stack, {.i = PREVSEL } }, 
+	   { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \
 	   { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \
 	   { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \
 	   { MOD, XK_x,     ACTION##stack, {.i = -1 } }, */
@@ -108,7 +108,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_o,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[1]} },
@@ -117,7 +117,6 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} }, */
 	{ MODKEY|ShiftMask,             XK_f,      fullscreen,      {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY,                       XK_backslash, view,        {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_backslash, tag,         {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -144,6 +143,7 @@ static Key keys[] = {
 	/* Launchers */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Tab,    spawn,          SHCMD("winFlash") },
 	/* Media Keys */
 	{ 0,         XF86XK_AudioRaiseVolume,  	spawn,     SHCMD("chVol +5%") },
 	{ 0,         XF86XK_AudioLowerVolume,   spawn,     SHCMD("chVol -5%") },
