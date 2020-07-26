@@ -42,9 +42,13 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"termite", "--name", "sppulse", "-e", "pulsemixer", NULL };
+const char *spcmd2[] = {"gnome-calculator", "--name", "spcalc", NULL };
+const char *spcmd3[] = {"termite", "--name", "spterm", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"sppulse",      spcmd1},
+	{"spcalc",       spcmd2},
+	{"spterm",       spcmd3},
 };
 
 /* tagging */
@@ -59,6 +63,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ NULL,       "sppulse",  NULL,       SPTAG(0),     1,           -1 },
+	{ NULL,       "spcalc",   NULL,       SPTAG(1),     1,           -1 },
+	{ NULL,       "spterm",   NULL,       SPTAG(2),     1,           -1 },
 };
 
 /* layout(s) */
@@ -135,6 +141,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_0,                      9)
 	/* Scratchpad Windows */
 	{ MODKEY|ShiftMask,             XK_m,      togglescratch,  {.ui = 0} },
+	{ MODKEY,			XK_c,	   togglescratch,  {.ui = 1} },
+	{ MODKEY|ControlMask,           XK_Return, togglescratch,  {.ui = 2} },
 	/*  Gaps */
 	{ MODKEY,                       XK_p,      togglegaps,     {0} },
 	{ MODKEY|ShiftMask,             XK_p,      incrgaps,       {.i = +3 } },
