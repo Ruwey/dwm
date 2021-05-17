@@ -161,7 +161,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	TAGKEYS(                        XK_0,                      9)
 	/* Scratchpad Windows */
-	{ MODKEY|ShiftMask,             XK_m,      togglescratch,  {.ui = 0} },
+	{ MODKEY|ControlMask,           XK_m,      togglescratch,  {.ui = 0} },
 	{ MODKEY,			XK_c,	   togglescratch,  {.ui = 1} },
 	{ MODKEY|ControlMask,           XK_Return, togglescratch,  {.ui = 2} },
 	/*  Gaps */
@@ -173,6 +173,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    spawn,          SHCMD("winFlash") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
 	/* Power Keys */
 	{ MODKEY,                       XK_BackSpace, spawn,       SHCMD("powerMenu") },
 	{ MODKEY|ShiftMask,             XK_BackSpace, spawn,       SHCMD("blurlock") },
@@ -187,7 +188,8 @@ static Key keys[] = {
 	{ 0,         XF86XK_AudioPrev,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) previous") },
 	{ 0,         XF86XK_AudioPlay,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) play-pause") },
 	{ 0,         XF86XK_AudioNext,          spawn,     SHCMD("playerctl -p $(cat $HOME/.local/share/mediaPlayer) next") },
-	{ MODKEY,    XK_m,                      spawn,     SHCMD("chMp") },
+	{ MODKEY|ShiftMask,             XK_m,   spawn,     SHCMD("chMp") },
+	{ MODKEY,                       XK_m,   spawn,     SHCMD("chSink") },
 	{ 0,         XF86XK_MonBrightnessUp,    spawn,     SHCMD("chBl +10") },
 	{ 0,         XF86XK_MonBrightnessDown,  spawn,     SHCMD("chBl -10") },
 	{ ShiftMask, XF86XK_MonBrightnessUp,    spawn,     SHCMD("chBl +5") },
